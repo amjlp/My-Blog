@@ -1,0 +1,15 @@
+[build]
+  command = "pnpm run netlify"
+  publish = "public"
+
+# 安全响应头
+# 说明：放在 netlify.toml 里而不是 source/_headers，
+# 因为 Hexo 会跳过 source 下以下划线开头的文件，靠 _headers 复制不可靠。
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=(), payment=()"
+    Cross-Origin-Opener-Policy = "same-origin"
