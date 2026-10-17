@@ -1,2 +1,3 @@
-﻿allowBuilds:
+allowBuilds:
   hexo-util: true
+  '@parcel/watcher': false
