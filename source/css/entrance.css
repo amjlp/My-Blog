@@ -1,0 +1,60 @@
+/* 第二版：完整插画、时钟展开、错层入场；不使用全屏阻塞开场。 */
+#page-header.full_page.has-illustration-stage{height:min(900px,100svh);min-height:740px;background:#100b0e}
+#page-header.full_page.has-illustration-stage:after{opacity:.2;background-position:50% 25%;animation:none}
+#page-header.full_page.has-illustration-stage:before{background:linear-gradient(90deg,#100b0ef2 0%,#100b0ecc 38%,#100b0e44 72%,#100b0e99)}
+#page-header.has-illustration-stage #site-info{top:34%;left:7%;right:auto;width:42%;z-index:3}
+#page-header.has-illustration-stage #site-title{font-size:clamp(2rem,4vw,4.5rem)!important;line-height:1.45}
+#page-header.has-illustration-stage #site-info:before{content:'THE MEMORY OF TIME / 时之记忆';font-size:11px;letter-spacing:.25em}
+#page-header.has-illustration-stage #site-title{animation:title-arrival 1.2s cubic-bezier(.16,1,.3,1) both}
+#page-header.has-illustration-stage #site-subtitle{animation:title-arrival 1.2s .18s cubic-bezier(.16,1,.3,1) both}
+#page-header.has-illustration-stage #site_social_icons{animation:title-arrival 1.2s .3s cubic-bezier(.16,1,.3,1) both}
+#illustration-stage{position:absolute;inset:0;pointer-events:none;z-index:2;overflow:hidden}
+.chronograph{position:absolute;width:690px;height:690px;top:9%;left:48%;color:#d9a24a;opacity:.65}
+.clock-arrival{width:100%;height:100%;position:relative;animation:clock-arrival 1.7s cubic-bezier(.16,1,.3,1) both}
+.clock-outer,.clock-inner{position:absolute;border:1px solid #d9a24a88;border-radius:50%;inset:0}
+.clock-outer{background:repeating-conic-gradient(from 0deg,transparent 0deg 5.6deg,#d9a24a99 5.6deg 6deg);mask:radial-gradient(transparent 68%,#000 68.2%);animation:clock-turn 100s linear infinite}
+.clock-inner{inset:35px;border-style:dashed;outline:1px solid #d9a24a44;outline-offset:12px;animation:clock-turn 80s linear infinite reverse}
+.roman{position:absolute;font:26px Georgia,serif;text-shadow:0 0 20px #d9a24a66}.r12{top:52px;left:48%}.r3{right:58px;top:48%}.r6{bottom:52px;left:49%}.r9{left:58px;top:48%}
+.clock-hand{position:absolute;left:50%;bottom:50%;height:43%;width:1px;background:linear-gradient(transparent,#ffe3a1);transform-origin:bottom;animation:clock-turn 24s linear infinite}
+.art-arrival{position:absolute;left:56%;top:11%;height:73%;width:32%;perspective:1200px;animation:art-arrival 1.5s cubic-bezier(.16,1,.3,1) both}
+.art-frame{position:relative;width:100%;height:100%;padding:10px;border:1px solid #d9a24a88;background:#20151a;box-shadow:16px 20px 0 #c1121f22,0 22px 70px #0008;transform:rotate(3deg);overflow:hidden}
+.art-frame:before{content:'';position:absolute;inset:4px;border:1px solid #d9a24a44;pointer-events:none;z-index:2}
+.featured-art{display:block;width:100%;height:100%;object-fit:contain;background:#100b0e;opacity:1}
+.art-glint{position:absolute;inset:-40%;pointer-events:none;background:linear-gradient(115deg,transparent 43%,#ffe9b855 50%,transparent 57%);transform:translateX(100%);animation:opening-glint 1.3s .45s both}
+.stage-beam{position:absolute;inset:0;background:linear-gradient(110deg,transparent 40%,#d9a24a15 48%,transparent 55%);transform:translateX(100%);animation:opening-glint 1.7s both}
+.stage-caption{position:absolute;left:7%;bottom:30%;color:#ead4ad;display:flex;gap:15px;align-items:center;animation:title-arrival 1s .35s both;font:11px 'Microsoft YaHei',sans-serif;letter-spacing:.12em}
+.stage-number{color:#fff;font:28px Georgia,serif}.stage-name{max-width:220px}
+.stage-selector{position:absolute;left:7%;bottom:13%;display:flex;gap:12px;pointer-events:auto;animation:title-arrival 1s .5s both}
+.art-choice{position:relative;width:58px;height:86px;padding:3px;border:1px solid #d9a24a55;background:#21171c;cursor:pointer;transition:transform .3s,opacity .3s;color:#fff}
+.art-choice img{display:block;width:100%;height:62px;object-fit:cover;object-position:50% 25%;opacity:.65;transition:opacity .3s}
+.art-choice span{font:10px Georgia,serif;display:block;line-height:16px;letter-spacing:.16em}
+.art-choice[aria-pressed=true]{border-color:#ffe0a2;transform:translateY(-8px);box-shadow:0 5px 20px #d9a24a22}
+.art-choice[aria-pressed=true] img,.art-choice:hover img{opacity:1}.art-choice:hover{transform:translateY(-8px)}.art-choice:focus-visible{outline:2px solid #fff;outline-offset:5px}
+/* 预加载器仍由 Butterfly 控制生命周期，升级为双环表盘。 */
+#loading-box .configure-border-1{width:110px;height:110px;border:1px solid #d9a24a;outline:1px dashed #d9a24a88;outline-offset:9px;animation:clock-turn 4s linear infinite}
+#loading-box .configure-border-1:before{content:'Ⅻ · Ⅲ · Ⅵ · Ⅸ';inset:12px 0 auto;font-size:13px;letter-spacing:3px}
+#loading-box .configure-border-1:after{left:54px;top:24px;height:32px}
+#loading-box .configure-border-2{display:block;position:absolute;width:145px;height:145px;padding:0;border:1px solid #c1121f;border-radius:50%;background:none;animation:clock-turn 6s linear infinite reverse}
+#loading-box .loading-word{letter-spacing:.2em}
+@keyframes title-arrival{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes art-arrival{from{opacity:0;transform:translateX(100px) translateY(35px) rotate(12deg) scale(.85)}to{opacity:1;transform:none}}
+@keyframes clock-arrival{from{opacity:0;transform:scale(.5) rotate(-65deg)}to{opacity:1;transform:scale(1) rotate(0)}}
+@keyframes opening-glint{0%{opacity:0;transform:translateX(-100%)}30%{opacity:1}100%{opacity:0;transform:translateX(100%)}}
+@media(min-width:768px) and (hover:hover) and (pointer:fine){.art-frame{animation:art-float 7s 1.5s ease-in-out infinite}.art-arrival:hover .art-frame{animation-play-state:paused}@keyframes art-float{0%,100%{transform:translateY(0) rotate(3deg)}50%{transform:translateY(-12px) rotate(1deg)}}}
+@media(max-width:1000px) and (min-width:768px){.stage-selector{gap:7px}.art-choice{width:48px}.stage-caption{max-width:40%}.chronograph{left:40%}.art-arrival{left:57%;width:36%}}
+@media(max-width:767px){
+ #page-header.full_page.has-illustration-stage{height:800px;min-height:800px;max-height:none}
+ #page-header.has-illustration-stage #site-info{top:108px;left:7%;width:86%}
+ #page-header.has-illustration-stage #site-title{font-size:2rem!important}
+ #page-header.has-illustration-stage #site-info:before{font-size:9px;letter-spacing:.15em;margin-bottom:8px}
+ #page-header.has-illustration-stage #site-subtitle{font-size:13px}
+ #page-header.has-illustration-stage #site_social_icons{display:none}
+ .art-arrival{left:24%;top:260px;height:365px;width:64%}
+ .chronograph{left:calc(50% - 225px);top:225px;width:450px;height:450px}
+ .roman{font-size:18px}.r12{top:40px}.r6{bottom:40px}.r3{right:40px}.r9{left:40px}
+ .stage-caption{left:7%;bottom:145px;gap:10px}.stage-number{font-size:20px}.stage-name{font-size:9px}
+ .stage-selector{left:7%;bottom:43px;gap:10px}.art-choice{width:52px;height:77px}.art-choice img{height:53px}
+ .art-frame{transform:rotate(2deg)}.clock-outer,.clock-inner,.clock-hand{animation:none}
+}
+@media(prefers-reduced-motion:reduce){#illustration-stage *,#illustration-stage *:before,#page-header.has-illustration-stage #site-info *{animation:none!important;transition:none!important}.art-arrival,.clock-arrival,.stage-selector,.stage-caption{opacity:1;transform:none}.stage-beam,.art-glint{display:none}}
+html[data-visual-hidden=true] #illustration-stage *{animation-play-state:paused!important}

@@ -1069,9 +1069,11 @@ inject:
   head:
     - '<script src="/js/hero-preload.js"></script>'
     - '<link rel="stylesheet" href="/css/custom.css">'
+    - '<link rel="stylesheet" href="/css/entrance.css?v=2">'
     - '<noscript><style>#loading-box{display:none!important}body{overflow:auto!important}#nav{height:auto!important;flex-wrap:wrap;opacity:1!important}#nav #menus .menus_items{display:flex!important;flex-wrap:wrap}#nav #toggle-menu,#search-button{display:none!important}#nav .menus_item{padding:4px!important}#nav #blog-info{flex:0 0 100%!important}</style></noscript>'
   bottom:
     - '<script src="/js/custom.js" defer></script>'
+    - '<script src="/js/entrance.js?v=2" defer></script>'
 
 # CDN Settings
 # Don't modify the following settings unless you know how they work
