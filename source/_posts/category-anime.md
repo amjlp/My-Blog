@@ -5,6 +5,7 @@ categories:
   - 追番
 tags:
   - 分类说明
+cover: /img/posts/category-anime/cover.webp
 ---
 
 这里记番剧和动画：在追什么、看完了什么、喜欢哪个角色、哪一集封神。

@@ -5,6 +5,7 @@ categories:
   - 学习
 tags:
   - 分类说明
+cover: /img/posts/category-study/cover.webp
 ---
 
 这里用来记录学习和折腾的过程：读书笔记、技术踩坑、课程总结、代码片段。

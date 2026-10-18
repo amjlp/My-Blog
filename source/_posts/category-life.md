@@ -5,6 +5,7 @@ categories:
   - 生活
 tags:
   - 分类说明
+cover: /img/posts/category-life/cover.webp
 ---
 
 这里放日常：心情、见闻、随手拍、吃过的店、走过的路。
