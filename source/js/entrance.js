@@ -53,6 +53,13 @@
       selected = index;
       img.src = preload.src;
       img.alt = `时崎狂三插画 · ${title}`;
+      // 背景联动：选中的插画同时成为首页背景（淡出 → 换图 → 淡入，避免硬切）
+      const heroURL = imageURL(id);
+      header.classList.add('is-hero-swap');
+      window.setTimeout(() => {
+        document.documentElement.style.setProperty('--hero', `url('${heroURL}')`);
+        window.requestAnimationFrame(() => header.classList.remove('is-hero-swap'));
+      }, reduced.matches ? 0 : 180);
       stage.querySelector('.stage-number').textContent = `0${index + 1} / 05`;
       stage.querySelector('.stage-name').textContent = `${title} / ${english}`;
       [...controls.children].forEach((button, i) => button.setAttribute('aria-pressed', String(i === index)));

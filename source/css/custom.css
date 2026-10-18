@@ -54,3 +54,7 @@ html[data-visual-page=about] #page-header{background-image:url('/img/hero/790230
 /* 约束主题过渡属性，避免继承 transition:all。 */
 *,*:before,*:after{transition-property:transform,opacity!important}
 #page-header #site-subtitle,#page-header #subtitle{color:#fff!important}
+
+/* 首页背景随插画切换：淡出 → 换图 → 淡入 */
+#page-header.full_page:after{transition:opacity .35s ease}
+#page-header.full_page.is-hero-swap:after{opacity:0!important}
