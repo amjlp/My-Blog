@@ -13,14 +13,14 @@ h1,h2,h3,.article-title{font-family:'Noto Serif SC','Source Han Serif SC','Songt
 #site-subtitle{color:#fff;font-size:1rem;letter-spacing:.16em;text-shadow:0 2px 7px #000}
 #page-header.full_page #site-title,#page-header.full_page #site-subtitle,#page-header.full_page #site_social_icons{text-align:left}
 #site_social_icons .social-icon{color:#fff!important}
-html:has(link[rel=canonical][href$='/about/']) #page-header{background-image:url('/img/hero/79023055_p0.webp')!important;background-position:50% 12%}
+html:has(link[rel=canonical][href$='/about/']) #page-header{background-image:url('/img/hero/138724712_p0.webp')!important;background-position:50% 12%}
 #footer .footer-other,#footer .footer-other a{color:var(--ink)}
 #site-info:before{content:'ALARICE / CHRONICLES';display:block;color:#f2cc88;font:12px Georgia,serif;letter-spacing:.32em;margin-bottom:18px}
 #nav{background:rgba(15,12,13,.64)}#nav a,#nav .site-page{color:#fff!important}#nav.nav-fixed{background:var(--surface)}#nav.nav-fixed a,#nav.nav-fixed .site-page{color:var(--ink)!important}
 #page-header:has(+main #about),body:has(#page h1) #page-header{background-position:center 28%}
 body:has(a[href='/about/'].site-page) #page-header:not(.full_page){background-position:65% 30%}
 /* 关于页用路径标记，由早期初始化设置；无 JS 时仍有可读默认横幅。 */
-html[data-visual-page=about] #page-header{background-image:url('/img/hero/79023055_p0.webp')!important;background-position:50% 12%}
+html[data-visual-page=about] #page-header{background-image:url('/img/hero/138724712_p0.webp')!important;background-position:50% 12%}
 #recent-posts>.recent-post-item,.card-widget,#post,#page,#archive,#tag,#category{background:var(--surface);color:var(--ink);border:1px solid var(--line);box-shadow:0 10px 32px #0000000a}
 #recent-posts>.recent-post-item{position:relative;isolation:isolate;transition:transform .3s;overflow:hidden}
 #recent-posts>.recent-post-item:after{content:'';position:absolute;inset:0;border:1px solid var(--c-accent);border-radius:inherit;opacity:0;pointer-events:none;transition:opacity .3s}
@@ -47,7 +47,7 @@ html[data-visual-page=about] #page-header{background-image:url('/img/hero/790230
 #loading-box .configure-border-2{display:none}#loading-box .loading-word{color:var(--ink)}
 @keyframes clock-turn{to{transform:rotate(360deg)}}@keyframes ken-burns{50%{transform:translate3d(0,var(--parallax,0px),0) scale(1.08)}}@keyframes gold-sweep{0%{transform:translateX(-100%);opacity:0}20%{opacity:1}100%{transform:translateX(100%);opacity:0}}
 @media(hover:hover) and (pointer:fine) and (min-width:768px){#recent-posts>.recent-post-item:hover{transform:translateY(-4px)}#recent-posts>.recent-post-item:hover:after{opacity:1}#recent-posts>.recent-post-item:hover:before{animation:gold-sweep 1s ease-out}.avatar-img img{transition:transform .8s}.avatar-img img:hover{transform:rotate(360deg)}}
-@media(max-width:767px){:root{--hero:url('/img/hero/103441036_p0-sm.webp')}[data-theme=dark]{--hero:url('/img/hero/37135597_p0-sm.webp')}#page-header.full_page{min-height:420px;height:72svh}#page-header #site-info{left:7%;right:7%;top:56%}#page-header.full_page:after{background-position:var(--hero-x,50%) var(--hero-pos,26%)}#visual-glow,#visual-dust{display:none}html[data-visual-page=about] #page-header{background-image:url('/img/hero/79023055_p0-sm.webp')!important}.layout{max-width:100%}#post,#page{padding:24px 18px}#site-title{overflow-wrap:anywhere}}
+@media(max-width:767px){:root{--hero:url('/img/hero/103441036_p0-sm.webp')}[data-theme=dark]{--hero:url('/img/hero/37135597_p0-sm.webp')}#page-header.full_page{min-height:420px;height:72svh}#page-header #site-info{left:7%;right:7%;top:56%}#page-header.full_page:after{background-position:var(--hero-x,50%) var(--hero-pos,26%)}#visual-glow,#visual-dust{display:none}html[data-visual-page=about] #page-header{background-image:url('/img/hero/138724712_p0-sm.webp')!important}.layout{max-width:100%}#post,#page{padding:24px 18px}#site-title{overflow-wrap:anywhere}}
 /* 包括主题原有动画和过渡；静态内容不依赖 JS 才可见。 */
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.visual-reveal{opacity:1!important;transform:none!important}#page-header.full_page:after{transform:none!important}#visual-dust,#visual-glow{display:none!important}.visual-seal,.avatar-img img,.post_cover img{transform:none!important}}
 
