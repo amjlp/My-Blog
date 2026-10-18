@@ -21,7 +21,15 @@ html:has(link[rel=canonical][href$='/about/']) #page-header{background-image:url
 body:has(a[href='/about/'].site-page) #page-header:not(.full_page){background-position:65% 30%}
 /* 关于页用路径标记，由早期初始化设置；无 JS 时仍有可读默认横幅。 */
 html[data-visual-page=about] #page-header{background-image:url('/img/hero/138724712_p0.webp')!important;background-position:50% 12%}
-#recent-posts>.recent-post-item,.card-widget,#post,#page,#archive,#tag,#category{background:var(--surface);color:var(--ink);border:1px solid var(--line);box-shadow:0 10px 32px #0000000a}
+/* 归档页 / 标签页横幅 */
+html:has(link[rel=canonical][href$='/archives/index.html']) #page-header,
+html:has(link[rel=canonical][href$='/archives/']) #page-header{background-image:url('/img/hero/150244431_p0.webp')!important;background-position:50% 28%}
+html:has(link[rel=canonical][href$='/tags/index.html']) #page-header,
+html:has(link[rel=canonical][href$='/tags/']) #page-header{background-image:url('/img/hero/129925025_p0.webp')!important;background-position:50% 22%}
+@media(max-width:767px){
+  html:has(link[rel=canonical][href$='/archives/index.html']) #page-header{background-image:url('/img/hero/150244431_p0-sm.webp')!important}
+  html:has(link[rel=canonical][href$='/tags/index.html']) #page-header{background-image:url('/img/hero/129925025_p0-sm.webp')!important}
+}#recent-posts>.recent-post-item,.card-widget,#post,#page,#archive,#tag,#category{background:var(--surface);color:var(--ink);border:1px solid var(--line);box-shadow:0 10px 32px #0000000a}
 #recent-posts>.recent-post-item{position:relative;isolation:isolate;transition:transform .3s;overflow:hidden}
 #recent-posts>.recent-post-item:after{content:'';position:absolute;inset:0;border:1px solid var(--c-accent);border-radius:inherit;opacity:0;pointer-events:none;transition:opacity .3s}
 #recent-posts>.recent-post-item:before{content:'';position:absolute;inset:-50%;background:linear-gradient(110deg,transparent 43%,#d9a24a20 50%,transparent 57%);transform:translateX(-100%);pointer-events:none;z-index:2;opacity:0}
