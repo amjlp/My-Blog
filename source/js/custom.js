@@ -10,7 +10,7 @@
     const on = (el, name, fn, opts={}) => el.addEventListener(name, fn, {...opts,signal});
     const add = (tag,id,parent=document.body) => {const el=document.createElement(tag);el.id=id;el.setAttribute('aria-hidden','true');parent.append(el);clean.push(()=>el.remove());return el;};
     const header=document.querySelector('#page-header'), home=header?.classList.contains('full_page');
-    document.documentElement.dataset.visualPage=location.pathname.startsWith('/about')?'about':'other';
+    const p=location.pathname;document.documentElement.dataset.visualPage=p.startsWith('/about')?'about':p.startsWith('/archives')?'archives':p.startsWith('/tags')?'tags':'other';
     const progress=add('div','visual-progress');
     const footer=document.querySelector('#footer .footer-other');
     const seal=footer?add('div','visual-seal',footer):null;

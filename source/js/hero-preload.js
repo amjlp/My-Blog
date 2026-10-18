@@ -3,7 +3,7 @@
   // Butterfly 5.7.0 在 effect:false + PJAX 时仍引用全局 typed。
   // 提供空实例使其原生销毁回调安全短路，不修改主题文件。
   window.typed = window.typed || null;
-  document.documentElement.dataset.visualPage = location.pathname.startsWith('/about') ? 'about' : 'other';
+  (()=>{const p=location.pathname;document.documentElement.dataset.visualPage=p.startsWith('/about')?'about':p.startsWith('/archives')?'archives':p.startsWith('/tags')?'tags':'other';})();
   const home = location.pathname === '/' || location.pathname === '/index.html';
   if (!home) return;
   const dark = document.documentElement.dataset.theme !== 'light';

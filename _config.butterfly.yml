@@ -1067,12 +1067,12 @@ css_prefix: true
 # Insert the code to head (before '</head>' tag) and the bottom (before '</body>' tag)
 inject:
   head:
-    - '<script src="/js/hero-preload.js"></script>'
-    - '<link rel="stylesheet" href="/css/custom.css">'
+    - '<script src="/js/hero-preload.js?v=2"></script>'
+    - '<link rel="stylesheet" href="/css/custom.css?v=2">'
     - '<link rel="stylesheet" href="/css/entrance.css?v=3">'
     - '<noscript><style>#loading-box{display:none!important}body{overflow:auto!important}#nav{height:auto!important;flex-wrap:wrap;opacity:1!important}#nav #menus .menus_items{display:flex!important;flex-wrap:wrap}#nav #toggle-menu,#search-button{display:none!important}#nav .menus_item{padding:4px!important}#nav #blog-info{flex:0 0 100%!important}</style></noscript>'
   bottom:
-    - '<script src="/js/custom.js" defer></script>'
+    - '<script src="/js/custom.js?v=2" defer></script>'
     - '<script src="/js/entrance.js?v=2" defer></script>'
 
 # CDN Settings

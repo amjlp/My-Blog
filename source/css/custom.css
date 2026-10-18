@@ -21,7 +21,13 @@ html:has(link[rel=canonical][href$='/about/']) #page-header{background-image:url
 body:has(a[href='/about/'].site-page) #page-header:not(.full_page){background-position:65% 30%}
 /* 关于页用路径标记，由早期初始化设置；无 JS 时仍有可读默认横幅。 */
 html[data-visual-page=about] #page-header{background-image:url('/img/hero/138724712_p0.webp')!important;background-position:50% 12%}
-/* 归档页 / 标签页横幅 */
+/* 归档页 / 标签页横幅（属性标记，兼容不支持 :has 的浏览器） */
+html[data-visual-page=archives] #page-header{background-image:url('/img/hero/150244431_p0.webp')!important;background-position:50% 28%}
+html[data-visual-page=tags] #page-header{background-image:url('/img/hero/129925025_p0.webp')!important;background-position:50% 22%}
+@media(max-width:767px){
+  html[data-visual-page=archives] #page-header{background-image:url('/img/hero/150244431_p0-sm.webp')!important}
+  html[data-visual-page=tags] #page-header{background-image:url('/img/hero/129925025_p0-sm.webp')!important}
+}/* 归档页 / 标签页横幅 */
 html:has(link[rel=canonical][href$='/archives/index.html']) #page-header,
 html:has(link[rel=canonical][href$='/archives/']) #page-header{background-image:url('/img/hero/150244431_p0.webp')!important;background-position:50% 28%}
 html:has(link[rel=canonical][href$='/tags/index.html']) #page-header,
