@@ -11,11 +11,13 @@
     const controller = new AbortController();
     let alive = true, request = 0, selected = -1;
     const works = [
-      ['37135597', '绯红时刻', 'CRIMSON HOUR'],
-      ['79023055', '枫染和歌', 'AUTUMN VERSE'],
-      ['99540361', '温柔片刻', 'A QUIET MOMENT'],
-      ['103441036', '盛夏花语', 'SUMMER BLOOM'],
-      ['112682157', '时之刻印', 'THE TIMEKEEPER']
+      // [id, 中文名, 英文名, 纵向位置%, 背景缩放, 横向位置%]
+      // 竖构图越窄（如 02 和服），越要把纵向位置调小、放大并右对齐，才能把头部留在画框左侧的可见区
+      ['37135597', '绯红时刻', 'CRIMSON HOUR', 12, 1, 50],
+      ['79023055', '枫染和歌', 'AUTUMN VERSE', 6, 1.35, 100],
+      ['99540361', '温柔片刻', 'A QUIET MOMENT', 10, 1, 50],
+      ['103441036', '盛夏花语', 'SUMMER BLOOM', 22, 1, 50],
+      ['112682157', '时之刻印', 'THE TIMEKEEPER', 26, 1, 50]
     ];
     const stage = document.createElement('div');
     stage.id = 'illustration-stage';
@@ -45,7 +47,7 @@
     async function select(index) {
       if (index === selected) return;
       const token = ++request;
-      const [id, title, english] = works[index];
+      const [id, title, english, heroY, heroZoom, heroX] = works[index];
       const preload = new Image();
       preload.src = imageURL(id);
       try { await preload.decode(); } catch { return; }
@@ -57,7 +59,11 @@
       const heroURL = imageURL(id);
       header.classList.add('is-hero-swap');
       window.setTimeout(() => {
-        document.documentElement.style.setProperty('--hero', `url('${heroURL}')`);
+        const root = document.documentElement;
+        root.style.setProperty('--hero', `url('${heroURL}')`);
+        root.style.setProperty('--hero-pos', `${heroY == null ? 18 : heroY}%`);
+        root.style.setProperty('--hero-zoom', String(heroZoom == null ? 1 : heroZoom));
+        root.style.setProperty('--hero-x', `${heroX == null ? 50 : heroX}%`);
         window.requestAnimationFrame(() => header.classList.remove('is-hero-swap'));
       }, reduced.matches ? 0 : 180);
       stage.querySelector('.stage-number').textContent = `0${index + 1} / 05`;
@@ -70,7 +76,11 @@
     }
     header.append(stage);
     header.classList.add('has-illustration-stage');
-    const mode = () => select(document.documentElement.dataset.theme === 'light' ? 3 : 0);
+    // ?hero=1~5：把第 N 张固定为背景（预览/调试用），并覆盖主题默认选择
+    const heroParam = new URLSearchParams(location.search).get('hero');
+    let heroOverride = heroParam ? parseInt(heroParam, 10) - 1 : NaN;
+    if (!(heroOverride >= 0 && heroOverride < works.length)) heroOverride = NaN;
+    const mode = () => select(Number.isNaN(heroOverride) ? (document.documentElement.dataset.theme === 'light' ? 3 : 0) : heroOverride);
     const observer = new MutationObserver(mode);
     observer.observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
     const motion = () => { if(reduced.matches) stage.getAnimations({subtree:true}).forEach(animation => animation.cancel()); };
